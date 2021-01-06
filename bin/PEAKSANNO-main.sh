@@ -15,16 +15,17 @@ BEDFILE=$1
 SUMMITFILE=$2
 GTF=$3
 CHROMSIZES=$4
-
+echo
 echo "#############################################"
 echo "######       PEAKS ANNOTATION v1       ######"
 echo "#############################################"
-
-echo "MACS peaks file: $BEDFILE"
-echo "MACS summit file: $SUMMITFILE"
-echo "GTF: $GTF"
-echo "chrom sizes file: $CHROMSIZES"
-
+echo
+echo "Required input files provided:"
+echo "MACS peaks :  $BEDFILE"
+echo "MACS summits :  $SUMMITFILE"
+echo "GTF :  $GTF"
+echo "UCSC chromsizes :  $CHROMSIZES"
+echo
 # ================================================================================
 
 tempPrefix=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 5 | head -n 1)"_"`date +%s`
@@ -91,4 +92,7 @@ PEAKSANNO-include_genes.py \
 # clean up
 #
 rm -rf $tempPrefix* $filesArray
-echo "Completed"
+
+echo
+echo "COMPLETED"
+echo
