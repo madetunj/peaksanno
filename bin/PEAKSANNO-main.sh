@@ -85,7 +85,7 @@ export filesArray=$(echo -e "$filesArray\tclosest.$tempPrefix")
 cut -f 9,10 annotation/original_genes.gff > $tempPrefix.genes.names
 PEAKSANNO-include_genes.py \
 -g $tempPrefix.genes.names \
--o peaks_annotation_comparison.regions.txt \
+-p $BEDFILE \
 -f $filesArray
 
 #
