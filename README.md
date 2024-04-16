@@ -40,8 +40,12 @@ Optional summit file from MACS can be included
 	* bedtools
 	* python3
 
+## CITATION
 
-##Contact
+If you are using *PEAKSANNO*, please cite it's parent paper : 
+Adetunji, M.O., Abraham, B.J. SEAseq: a portable and cloud-based chromatin occupancy analysis suite. BMC Bioinformatics 23, 77 (2022). https://doi.org/10.1186/s12859-022-04588-z
+
+## CONTACT
 
 Please use the GitHub issues page for reporting any issues / suggestions (recommended). 
 
