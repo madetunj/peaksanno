@@ -1,36 +1,53 @@
-========================  PEAKS ANNOTATION  ======================
+# PEAKS ANNOTATION
 
-1) USAGE
-Executable anywhere as long as the PATHTO is correctly specified.
-	```
-	PEAKSANNO-main.sh ["MACS PEAK bed"] ["MACS Summit bed"] ["GTF"] ["CHROM SIZES"]
-	```
+## DESCRIPTION
 
-1) INPUT
-The package requires the following files
-	- MACS peaks bed file
-	- MACS peaks summit file
-	- GTF having either gene or transcript (prefered) annotation
-	- UCSC provided chrom.sizes file
+Genic annotation of peaks including promoters, gene bodies, gene-centric windows, and proximal genes.
 
-1) OUTPUT
+**PeaksAnoo** provides the genic annotation of peaks at promoters, gene bodies, and gene-centric windows.
+Annotated regions are collated to give a binary overview of proximal genes, and the peak occupancy 
+percentages are graphically presented in a bar plot.
+This is a part of the major analysis for ChIPSeq or Cut&Run-Seq using our comprehensive pipeline [SEASEQ](https://github.com/stjude/seaseq/).
 
-	1) TSS nearest the center of peaks in __*centerofpeaks_closest.regions.txt*__
-	1) peaks overlapping genes regions in __*peaks_within_genebody.regions.txt*__
-	1) peaks overlapping promoters in __*peaks_within_promoter.regions.txt*__
-	1) peaks overlapping windows in __*peaks_within_window.regions.txt*__
-	1) peaks identified in previous overlapping regions and comparison of all regions in __*peaks_compared_regions.peaks.txt*__
-	1) genes identified in previous overlapping regions and comparison of all regions in __*peaks_compared_regions.genes.txt*__
-	1) distribution graphs in __*peaks_compared_regions.distribution.pdf*__
+## USAGE
+``` bash
+peaksanno.py -p ["PEAK bed"] [-s ["MACS Summit bed"]] -g ["GTF"] -c ["CHROM SIZES"]
+```
+## INPUT
+The script requires the following files:
+1. Peaks bed file
+2. GTF/GFF/GFF3 having either gene or transcript (preferred) annotation
+3. UCSC provided chromosomal sizes file
 
-1) DEFINITIONS
+An optional summit file from MACS can be included
+
+## OUTPUT
+PeaksAnno genes the following files:
+1. TSS nearest the center of peaks in **centerofpeaks_closest.regions.txt**.
+2. Peaks overlapping genes regions in **peaks_within_genebody.regions.txt**.
+3. Peaks overlapping promoters in **peaks_within_promoter.regions.txt**.
+4. Peaks overlapping windows in **peaks_within_window.regions.txt**.
+5. Peaks identified in previous overlapping regions and comparison of all regions in **peaks_compared_regions.peaks.txt**.
+6. Genes identified in previous overlapping regions and comparison of all regions in **peaks_compared_regions.genes.txt**.
+7. Distribution graphs in **peaks_compared_regions.distribution.pdf**.
+
+## DEFINITIONS
 	- TSS: TSS (transcription start site)
 	- promoters: 1kb +/- TSS
-	- window: 10kb upstream --> 3kb downstream of genebody
-	- genebody: 1kb upstream of TSS --> TES (transcription end site)
+	- window: 10kb upstream to 3kb downstream of the gene locus
+	- genebody: 1kb upstream of TSS to TES (transcription end site)
 
-1) DEPENDENCIES
-	* bedtools
-	* python3
+## DEPENDENCIES
+1. bedtools
+2. python3
 
-=================================================================
+## CITATION
+If you are using ***PEAKSANNO***, please cite its parent paper : 
+Adetunji, M.O., Abraham, B.J. SEAseq: a portable and cloud-based chromatin occupancy analysis suite. BMC Bioinformatics 23, 77 (2022). https://doi.org/10.1186/s12859-022-04588-z
+
+## CONTACT
+
+Please use the GitHub issues page for reporting any issues/suggestions (recommended). 
+
+Alternatively, you can e-mail Modupe Adetunji <modupeore.adetunji@stjude.org>
+
