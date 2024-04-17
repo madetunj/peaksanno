@@ -4,7 +4,7 @@
 
 Genic annotation of peaks including promoters, gene bodies, gene-centric windows, and proximal genes.
 
-**PeaksAnoo** provides the genic annotation of peaks at promoters, gene bodies, and gene-centric windows.
+**PeaksAnno** provides the genic annotation of peaks at promoters, gene bodies, and gene-centric windows.
 Annotated regions are collated to give a binary overview of proximal genes, and the peak occupancy 
 percentages are graphically presented in a bar plot.
 This is a part of the major analysis for ChIPSeq or Cut&Run-Seq using our comprehensive pipeline [SEASEQ](https://github.com/stjude/seaseq/).
